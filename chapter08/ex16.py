@@ -1,18 +1,11 @@
 from file_util import read_file_lines
+import os
+import sys
 
 fname = input('입력할 파일의 이름: ')
+if not os.path.exists(fname):
+    print(fname,'이 존재하지 않습니다.')
+    sys.exit(0)
+
 f=open(fname,'r')
-n=1
-l=f.readline()
-while l:
-    print(f'{n:3d}: {l}',end='')
-    n += 1
-    l=f.readline()
-f.close()
-print()
-print('=======================')
 
-data = read_file_lines('we_will_rock.txt')
-
-for n, l in enumerate(data, 1):
-    print(f'{n:3d}: {l}')
